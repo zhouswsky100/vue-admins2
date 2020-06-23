@@ -32,11 +32,23 @@ menu.fenxi = {
 
 let fenxi = menu.fenxi.children;
 fenxi.jieduan ={
-    name: '阶段分析',
+    name: '三阶段分析',
     icon: 'fa fa-th',
     children:{}
 }
+fenxi.jiandu ={
+  name: '三专项监督',
+  icon: 'fa fa-th',
+  children:{}
+}
+fenxi.guanzhu ={
+  name: '重点关注',
+  icon: 'fa fa-th',
+  children:{}
+}
 let fenxis =fenxi.jieduan.children;
+let fenxi2 =fenxi.jiandu.children;
+let fenxi3 =fenxi.guanzhu.children;
 
 fenxis.ycaoan = {
   name: '预算草案',
