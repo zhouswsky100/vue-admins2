@@ -129,32 +129,32 @@ let RouteList = [
         },
         component: resolve => require(['~/views/fenxi/bmys/index.vue'], resolve),
       },
-      {
-        path: '/font_awesome',
-        name: 'FontAwesome',
-        meta: {
-          title: 'FontAwesome 图标',
-          keepAlive: false
-        },
-        component: resolve => require(['~/views/Icon/FontAwesome.vue'], resolve),
-      },
-      {
-        path: '/element_icon',
-        name: 'ElementIcon',
-        meta: {
-          title: 'Element 图标',
-          keepAlive: false
-        },
-        component: resolve => require(['~/views/Icon/ElementIcon.vue'], resolve),
-      },
+      // {
+      //   path: '/font_awesome',
+      //   name: 'FontAwesome',
+      //   meta: {
+      //     title: 'FontAwesome 图标',
+      //     keepAlive: false
+      //   },
+      //   component: resolve => require(['~/views/Icon/FontAwesome.vue'], resolve),
+      // },
+      // {
+      //   path: '/element_icon',
+      //   name: 'ElementIcon',
+      //   meta: {
+      //     title: 'Element 图标',
+      //     keepAlive: false
+      //   },
+      //   component: resolve => require(['~/views/Icon/ElementIcon.vue'], resolve),
+      // },
       {
         path: '/post_manage',
         name: 'PostManage',
         meta: {
-          title: '文章管理',
+          title: '系统文件管理',
           keepAlive: false
         },
-        component: resolve => require(['~/views/ContentManage/Index.vue'], resolve),
+        component: resolve => require(['~/views/contentManage/index.vue'], resolve),
       },
       {
         path: '/user_manage',

@@ -1,33 +1,24 @@
 <template>
-  <div>
+<div>
     <ToolBar>
-      <el-button type="primary" icon="el-icon-plus" size="small">添加</el-button>
+      <el-button type="primary" icon="el-icon-plus" size="small">上传文件</el-button>
       <div style="float: right">
-        <el-input
-                placeholder="搜索标题"
-                size="small"
-                style="width: 140px"
-                v-model="searchParams.postTitle"
-                clearable>
-        </el-input>
-        <el-select v-model="searchParams.postType" size="small" clearable placeholder="请选择分类" style="width: 140px">
-          <el-option
-                  v-for="(v,k) in $Config.postType"
-                  :key="k"
-                  :label="v"
-                  :value="k">
-          </el-option>
-        </el-select>
-
-        <el-select v-model="searchParams.postStatus" size="small" clearable placeholder="请选择状态" style="width: 120px">
-          <el-option
-                  v-for="(v,k) in $Config.postStatus"
-                  :key="k"
-                  :label="v"
-                  :value="k">
-          </el-option>
-        </el-select>
-        <el-button type="success" icon="el-icon-search" size="small" @click="refresh = !refresh"></el-button>
+          <el-select v-model="select" size="small" clearable placeholder="请选择分类" @change="changeSel()" style="width: 140px">
+            <el-option
+                    v-for="item in $Config.contentData"
+                    :label="item.label"
+                    :key=" item.value"
+                    :value="item.value">
+            </el-option>
+          </el-select>
+          <el-input
+                  placeholder="搜索标题"
+                  size="small"
+                  style="width: 240px"
+                  v-model="input"
+                  clearable>
+          </el-input>
+          <el-button type="success" icon="el-icon-search" size="small"  @click="changeSel()"></el-button>
       </div>
     </ToolBar>
     <el-table
@@ -36,17 +27,29 @@
             style="width: 100%">
       <el-table-column
               prop="date"
-              label="日期"
+              label="No"
               width="180">
       </el-table-column>
       <el-table-column
               prop="name"
-              label="标题"
+              label="文件名称"
               width="180">
       </el-table-column>
       <el-table-column
               prop="address"
-              label="摘要">
+              label="文件大小">
+      </el-table-column>
+        <el-table-column
+              prop="address"
+              label="文件类型	">
+      </el-table-column>
+        <el-table-column
+              prop="address"
+              label="上传用户	">
+      </el-table-column>
+         <el-table-column
+              prop="address"
+              label="上传时间">
       </el-table-column>
       <el-table-column
               label="操作"
@@ -67,84 +70,9 @@
   export default {
     data() {
       return {
-        searchParams:{
-            postTitle:'',
-            postType:'',
-            postStatus:'published',
-        },
-        tableData3: [{
-          date: '2016-05-03',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-02',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-04',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-01',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-08',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-06',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }, {
-          date: '2016-05-07',
-          name: 'Lorem ipsum dolor sit amet,',
-          address: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit. Asperiores fugit in quae vero. Adipisci blanditiis dignissimos eum facere laudantium quasi ratione repellat vitae! Alias consequatur dolores enim neque similique unde.'
-        }]
+         input:'',
+         select:'',
+         tableData3: []
       }
     },
     methods: {
@@ -155,10 +83,18 @@
           }
         });
       },
+      changeSel(){
+          console.log(this.select)
+          console.log(this.input)
+      },
+      clearSel(){
+          this.select = ''
+          this.input = ''
+      },
       tableAction(){
         return this.$createElement('HelpHint',{
           props:{
-            content:'查看文章 / 编辑文章'
+            content:'下载 / 删除'
           }
         },'操作');
       },

@@ -96,7 +96,13 @@
                   <i :class="menu_v.icon"></i>
                   <span slot="title">{{ menu_v.name }}</span>
                 </template>
-                <el-submenu v-for="(menuChildren_v,menuChildren_k) in menu_v.children"
+                 <el-menu-item v-if="!menuChildren_v.children" v-for="(menuChildren_v,menuChildren_k) in menu_v.children"
+                              :key="menuChildren_k"
+                              :index="menuChildren_v.path">
+                  <i class="is-children fa fa-circle-o"></i>
+                  <span slot="title">{{ menuChildren_v.name }}</span>
+                </el-menu-item>
+                <el-submenu  v-if="menuChildren_v.children"  v-for="(menuChildren_v,menuChildren_k) in menu_v.children"
                               :key="menuChildren_k"
                               :index="menuChildren_k" >
                    <template slot="title">{{ menuChildren_v.name }}</template>
@@ -107,6 +113,7 @@
                     </el-menu-item>
                 </el-submenu>
               </el-submenu>
+              
               <el-menu-item v-else :index="menu_v.path">
                 <i :class="menu_v.icon"></i>
                 <span slot="title">{{ menu_v.name }}</span>

@@ -109,39 +109,39 @@ menu.fgzc = {
  * 字体图标
  * @type {{name: string, icon: string, children: {}}}
  */
-  menu.font_icon = {
-    name: '字体图标',
-    icon: 'fa fa-th',
-    children: {}
-  };
-let icon = menu.font_icon.children;
+//   menu.font_icon = {
+//     name: '字体图标',
+//     icon: 'fa fa-th',
+//     children: {}
+//   };
+// let icon = menu.font_icon.children;
 
-icon.font_awesome = {
-  name: 'FontAwesome 4.7',
-  path: '/font_awesome',
+// icon.font_awesome = {
+//   name: 'FontAwesome 4.7',
+//   path: '/font_awesome',
 
-};
-icon.element_icon = {
-  name: 'ElementIcon',
-  path: '/element_icon',
-};
+// };
+// icon.element_icon = {
+//   name: 'ElementIcon',
+//   path: '/element_icon',
+// };
 
 /**
  * 内容管理
  * @type {{name: string, icon: string, children: {}}}
  */
-// menu.content_manage = {
-//   name: '内容管理',
-//   icon: 'fa fa-file-text-o',
-//   children: {}
-// };
+menu.content_manage = {
+  name: '综合服务',
+  icon: 'fa fa-file-text-o',
+  children: {}
+};
 
-// let ContentManage = menu.content_manage.children;
+let ContentManage = menu.content_manage.children;
 
-// ContentManage.post = {
-//   name: '文章管理',
-//   path: '/post_manage',
-// };
+ContentManage.post = {
+  name: '系统文件管理',
+  path: '/post_manage',
+};
 
 /**
  * 用户管理
