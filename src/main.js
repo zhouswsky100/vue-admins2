@@ -4,6 +4,7 @@ import ElementUI from 'element-ui'
 import './theme/index.css'
 import './assets/css/font-awesome.min.css'
 import './assets/css/style.css'
+import './assets/css/app.css'
 import router from './router'
 import Config from './config'
 import rkcommon from './common/common.js' // global css

@@ -37,7 +37,7 @@ fenxi.jieduan ={
     children:{}
 }
 fenxi.jiandu ={
-  name: '三专项监督',
+  name: '专项监督',
   icon: 'fa fa-th',
   children:{}
 }
@@ -49,7 +49,7 @@ fenxi.guanzhu ={
 let fenxis =fenxi.jieduan.children;
 let fenxi2 =fenxi.jiandu.children;
 let fenxi3 =fenxi.guanzhu.children;
-
+//三阶段分析
 fenxis.ycaoan = {
   name: '预算草案',
   path: '/fenxi_ycaoan',
@@ -62,27 +62,69 @@ fenxis.caoan = {
     name: '决算草案',
     path: '/fenxi_jcaoan',
 };
+//专项监督
+fenxi2.zfpj = {
+  name: '政府投资项目',
+  path: '/jiandu_zfpj',
+};
+fenxi2.sjas = {
+  name: '审计发现问题',
+  path: '/jiandu_sjas',
+};
+fenxi2.gymg = {
+    name: '国有资产管理',
+    path: '/jiandu_gymg',
+};
+//重点关注
+fenxi3.yssr = {
+  name: '预算收入',
+  path: '/guanzhu_zfpj',
+};
+fenxi3.mszc = {
+  name: '民生支出',
+  path: '/guanzhu_mszc',
+};
+fenxi3.sgjf = {
+    name: '三公经费',
+    path: '/guanzhu_sgjf',
+};
+fenxi3.bmys = {
+  name: '部门预算',
+  path: '/guanzhu_bmys',
+};
+
+menu.yj = {
+  name: '预警',
+  path: '/yj',
+  icon: 'fa fa-tachometer',
+};
+
+menu.fgzc = {
+  name: '法规政策',
+  path: '/fgzc',
+  icon: 'fa fa-tachometer',
+};
 
 /**
  * 字体图标
  * @type {{name: string, icon: string, children: {}}}
  */
-//   menu.font_icon = {
-//     name: '字体图标',
-//     icon: 'fa fa-th',
-//     children: {}
-//   };
-// let icon = menu.font_icon.children;
+  menu.font_icon = {
+    name: '字体图标',
+    icon: 'fa fa-th',
+    children: {}
+  };
+let icon = menu.font_icon.children;
 
-// icon.font_awesome = {
-//   name: 'FontAwesome 4.7',
-//   path: '/font_awesome',
+icon.font_awesome = {
+  name: 'FontAwesome 4.7',
+  path: '/font_awesome',
 
-// };
-// icon.element_icon = {
-//   name: 'ElementIcon',
-//   path: '/element_icon',
-// };
+};
+icon.element_icon = {
+  name: 'ElementIcon',
+  path: '/element_icon',
+};
 
 /**
  * 内容管理

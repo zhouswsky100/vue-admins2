@@ -22,6 +22,24 @@ let RouteList = [
         component: resolve => require(['~/views/Home/Index.vue'], resolve),
       },
       {
+        path: '/yj',
+        name: 'Yj',
+        meta: {
+          title: '预警',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/yj/index.vue'], resolve),
+      },
+      {
+        path: '/fgzc',
+        name: 'Fgzc',
+        meta: {
+          title: '法规政策',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/fgzc/index.vue'], resolve),
+      },
+      {
         path: '/fenxi_ycaoan',
         name: 'FenxiYcaoan',
         meta: {
@@ -48,8 +66,69 @@ let RouteList = [
         },
         component: resolve => require(['~/views/fenxi/jcaoan/index.vue'], resolve),
       },
-
-
+      {
+        path: '/jiandu_zfpj',
+        name: 'JianduZfpj',
+        meta: {
+          title: '政府投资项目',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/fenxi/zfpj/index.vue'], resolve),
+      },
+      {
+        path: '/jiandu_sjas',
+        name: 'JianduSjas',
+        meta: {
+          title: '审计发现问题',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/fenxi/sjas/index.vue'], resolve),
+      },
+      {
+        path: '/jiandu_gymg',
+        name: 'JianduGymg',
+        meta: {
+          title: '国有资产管理',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/fenxi/gymg/index.vue'], resolve),
+      },
+      {
+        path: '/guanzhu_zfpj',
+        name: 'GuanzhuZfpj',
+        meta: {
+          title: '预算收入',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/fenxi/zfpj/index.vue'], resolve),
+      },
+      {
+        path: '/guanzhu_mszc',
+        name: 'GuanzhuMszc',
+        meta: {
+          title: '民生支出',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/fenxi/mszc/index.vue'], resolve),
+      },
+      {
+        path: '/guanzhu_sgjf',
+        name: 'GuanzhuSgjf',
+        meta: {
+          title: '三公经费',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/fenxi/sgjf/index.vue'], resolve),
+      },
+      {
+        path: '/guanzhu_bmys',
+        name: 'GuanzhuBmys',
+        meta: {
+          title: '部门预算',
+          keepAlive: false
+        },
+        component: resolve => require(['~/views/fenxi/bmys/index.vue'], resolve),
+      },
       {
         path: '/font_awesome',
         name: 'FontAwesome',

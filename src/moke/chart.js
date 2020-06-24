@@ -92,7 +92,7 @@ const chartData = {
     },
     "orgOption2":{
         title: {
-            text: 'ECharts 入门示例'
+            text: '销量图'
         },
         tooltip: {},
         xAxis: {
