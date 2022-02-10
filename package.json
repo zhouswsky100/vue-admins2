@@ -11,7 +11,7 @@
     "axios": "^0.17.0",
     "echarts": "^4.8.0",
     "element-ui": "^2.4.6",
-    "node-sass": "^4.14.1",
+    "node-sass": "^7.0.0",
     "sass-loader": "^8.0.2",
     "screenfull": "^3.3.2",
     "vue": "^2.5.2",
